@@ -1,0 +1,49 @@
+﻿<Window x:Class="FirstWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FirstWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="553.101" Width="633.874">
+    <Grid>
+        <Label Name="lblUserName" Content="User Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,29,0,0"/>
+        <Label Name="lblUserAddress" Content="Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="87,60,0,0" RenderTransformOrigin="1.394,1.895"/>
+        <Label Name="lblDOB" Content="Date of Birth" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,91,0,0" RenderTransformOrigin="1.394,1.895"/>
+        <TextBox Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="167,33,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="390"/>
+        <TextBox Name="txtAddress" HorizontalAlignment="Left" Height="23" Margin="167,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="390"/>
+        <DatePicker Name="dtpDOB" HorizontalAlignment="Left" Margin="167,93,0,0" VerticalAlignment="Top" Width="390"  SelectedDate="{Binding Path = SellStartDate, StringFormat = {}{0:dd-MM-yyyy}}">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <TextBox x:Name="PART_TextBox"
+     Text="{Binding Path=SelectedDate, StringFormat = {}{0:dd-MMM-yyyy}, 
+     RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <Button Content="Save" Name="btnSave" HorizontalAlignment="Left" Margin="482,138,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.787,0.255" Click="btnSave_Click"/>
+        <Button Content="Load" x:Name="btnLoad" HorizontalAlignment="Left" Margin="388,138,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.787,0.255" Click="btnLoad_Click"/>
+        <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <DataGrid Name="dgvView" AutoGenerateColumns="False" RowHeaderWidth="0" Margin="87,173,-560,-173">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Height" Value="35" />
+                        <Setter Property="Padding" Value="5" />
+                        <Setter Property="Background" Value="#4E87D4" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Property ID" Binding="{Binding Property_Name,Mode=TwoWay}" />
+                    <DataGridTextColumn Header="Property Address" Binding="{Binding Property_Address,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
