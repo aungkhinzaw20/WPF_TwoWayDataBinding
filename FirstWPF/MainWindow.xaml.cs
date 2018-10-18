@@ -30,7 +30,7 @@ namespace FirstWPF
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show(txtUserName.Text + Environment.NewLine + txtAddress.Text + Environment.NewLine + dtpDOB.Text);            
-
+            txtControl.BGColor = txtUserName.Text;
         }
         private void btnLoad_Click(object sender, RoutedEventArgs e)
         {

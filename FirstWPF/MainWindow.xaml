@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FirstWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="553.101" Width="633.874">
+        Title="MainWindow" Height="311.909" Width="574.523">
     <Grid>
         <Label Name="lblUserName" Content="User Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="71,29,0,0"/>
         <Label Name="lblUserAddress" Content="Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="87,60,0,0" RenderTransformOrigin="1.394,1.895"/>
@@ -27,10 +27,10 @@
                 </Style>
             </DatePicker.Resources>
         </DatePicker>
-        <Button Content="Save" Name="btnSave" HorizontalAlignment="Left" Margin="482,138,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.787,0.255" Click="btnSave_Click"/>
-        <Button Content="Load" x:Name="btnLoad" HorizontalAlignment="Left" Margin="388,138,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.787,0.255" Click="btnLoad_Click"/>
+        <Button Content="Save" Name="btnSave" HorizontalAlignment="Left" Margin="482,186,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.787,0.255" Click="btnSave_Click"/>
+        <Button Content="Load" x:Name="btnLoad" HorizontalAlignment="Left" Margin="385,186,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.787,0.255" Click="btnLoad_Click"/>
         <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left">
-            <DataGrid Name="dgvView" AutoGenerateColumns="False" RowHeaderWidth="0" Margin="87,173,-560,-173">
+            <DataGrid Name="dgvView" AutoGenerateColumns="False" RowHeaderWidth="0" Margin="86,216,-559,-216">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="Height" Value="35" />
@@ -45,5 +45,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <local:MyControl x:Name="txtControl" HorizontalAlignment="Left" Height="100" Margin="71,106,0,0" VerticalAlignment="Top" Width="509"/>
+
+
     </Grid>
 </Window>
